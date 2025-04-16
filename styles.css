@@ -1,0 +1,114 @@
+/* Carousel container */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+    background: #f7f7f7;
+}
+
+/* The inner container holds 3 images side by side */
+.carousel-inner {
+    display: flex;
+    width: 300%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+/* Each carousel item takes full container width */
+.carousel-item {
+    flex: 0 0 100%;
+    position: relative;
+}
+
+/* Images fill the item */
+.carousel-item img {
+    display: block;
+    width: 100%;
+}
+
+/* Left and right items have reduced opacity */
+.carousel-item.left,
+.carousel-item.right {
+    opacity: 0.6;
+}
+
+/* Center image is fully opaque */
+.carousel-item.center {
+    opacity: 1;
+}
+
+/* Gradient overlays for fade effect */
+.carousel-item.left::before,
+.carousel-item.right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.carousel-item.left::before {
+    left: 0;
+    /* Fade from left white to transparent on the right */
+    background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+}
+
+.carousel-item.right::before {
+    right: 0;
+    /* Fade from right white to transparent on the left */
+    background: linear-gradient(to left, #fff, rgba(255,255,255,0));
+}
+
+/* Navigation arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: rgba(255,255,255,0.7);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* Progress bar */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    background: #333;
+    transition: width 0.3s ease;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+} 
