@@ -1,100 +1,98 @@
-/* Carousel container */
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 40px auto;
-    overflow: hidden;
-    background: #f7f7f7;
-}
-
-/* The inner container holds 3 images side by side */
-.carousel-inner {
+/* Body styles for centering */
+body {
+    margin: 0;
+    min-height: 100vh;
     display: flex;
-    width: 300%;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    padding-top: 10px; /* Add padding to account for the progress bar */
 }
 
-/* Each carousel item takes full container width */
-.carousel-item {
-    flex: 0 0 100%;
+/* Comic container */
+.comic-container {
     position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
 }
 
-/* Images fill the item */
-.carousel-item img {
-    display: block;
+/* Image container */
+.comic-image-container {
+    position: relative;
     width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Adjust this based on your image aspect ratio */
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Left and right items have reduced opacity */
-.carousel-item.left,
-.carousel-item.right {
-    opacity: 0.6;
-}
-
-/* Center image is fully opaque */
-.carousel-item.center {
-    opacity: 1;
-}
-
-/* Gradient overlays for fade effect */
-.carousel-item.left::before,
-.carousel-item.right::before {
-    content: "";
+/* Comic image */
+.comic-image {
     position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+    border: 2px solid #000;
+    border-radius: 8px;
 }
 
-.carousel-item.left::before {
+/* Scale up effect */
+.comic-image.scale-up {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Navigation */
+.navigation {
+    position: absolute;
+    top: 50%;
     left: 0;
-    /* Fade from left white to transparent on the right */
-    background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-}
-
-.carousel-item.right::before {
     right: 0;
-    /* Fade from right white to transparent on the left */
-    background: linear-gradient(to left, #fff, rgba(255,255,255,0));
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 10;
 }
 
 /* Navigation arrows */
 .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    background: rgba(255,255,255,0.7);
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     cursor: pointer;
-    z-index: 10;
+    pointer-events: auto;
     user-select: none;
+    transition: background-color 0.2s ease;
 }
 
-.left-arrow {
-    left: 10px;
-}
-
-.right-arrow {
-    right: 10px;
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* Progress bar */
 .progress-bar {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
+    height: 10px;
     background: #ddd;
+    z-index: 100;
 }
 
 .progress-fill {
@@ -104,11 +102,42 @@
     transition: width 0.3s ease;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
+/* Mobile styles */
+@media (max-width: 768px) {
+    .comic-container {
+        width: 100%; /* Full width on mobile */
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .comic-image-container {
+        padding-bottom: 100%; /* Square aspect ratio for mobile */
+    }
+
+    .navigation {
+        padding: 0 10px;
+    }
+
     .arrow {
         width: 35px;
         height: 35px;
         font-size: 20px;
+        background: rgba(255, 255, 255, 0.9); /* More opaque on mobile */
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .comic-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
     }
 } 

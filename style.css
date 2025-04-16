@@ -1,0 +1,40 @@
+.comic-image {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.comic-image.scale-up {
+    transform: scale(1.05);
+}
+
+/* Fade transition classes */
+.comic-image.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+.comic-image.fade-in {
+    animation: fadeIn 5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Container to handle transitions */
+.comic-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hide overflow during transitions */
+.comic-image-container.transitioning {
+    overflow: hidden;
+} 

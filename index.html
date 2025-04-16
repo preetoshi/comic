@@ -3,28 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Carousel</title>
+    <title>Comic Strip</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item left">
-                <img src="" alt="Left image">
-            </div>
-            <div class="carousel-item center">
-                <img src="" alt="Current image">
-            </div>
-            <div class="carousel-item right">
-                <img src="" alt="Right image">
-            </div>
+    <div class="comic-container">
+        <div class="arrow left-arrow">←</div>
+        <div class="comic-image-container">
+            <img class="comic-image" src="" alt="Comic Strip">
         </div>
-        <div class="arrow left-arrow">&lt;</div>
-        <div class="arrow right-arrow">&gt;</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
+        <div class="arrow right-arrow">→</div>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
     </div>
     <script src="script.js"></script>
 </body>
