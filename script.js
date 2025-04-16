@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    // Create an array of 40 image URLs (using placeholder images)
+    // Create an array of image URLs
     var images = [];
-    var totalImages = 40;
+    var totalImages = 31; // Update to match your total number of images
     for (var i = 1; i <= totalImages; i++) {
         // Pad single-digit numbers with a leading zero (e.g., "01", "02", etc.)
         var paddedNumber = i < 10 ? "0" + i : i;
-        images.push("images/" + paddedNumber + ".jpg");
+        images.push("images/comicstrip2_" + paddedNumber + ".jpg");
     }
 
     var currentIndex = 0;
