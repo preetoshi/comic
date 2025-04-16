@@ -1,11 +1,12 @@
 $(document).ready(function() {
     // Create an array of image URLs
     var images = [];
-    var totalImages = 31; // Update to match your total number of images
+    var totalImages = 51; // Update to match your total number of images
     for (var i = 1; i <= totalImages; i++) {
         // Pad single-digit numbers with a leading zero (e.g., "01", "02", etc.)
         var paddedNumber = i < 10 ? "0" + i : i;
-        images.push("images/comicstrip2_" + paddedNumber + ".jpg");
+        // Update path to use .png extension and correct path for GitHub Pages
+        images.push("./images/comicstrip2_" + paddedNumber + ".png");
     }
 
     var currentIndex = 0;
